@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React from 'react';
+import BookCard from './cart/BookCard'; // Import the BookCard component
 
 function App() {
   const books = [
@@ -34,7 +35,14 @@ function App() {
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  return (
+    <div className="min-h-screen flex flex-wrap justify-center bg-gray-100 p-6">
+      {/* Map through books and pass each book as a prop to BookCard component */}
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
+    </div>
+  );
 }
 
 export default App;
